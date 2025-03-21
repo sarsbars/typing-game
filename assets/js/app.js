@@ -4,16 +4,34 @@ const countdownDisplay = document.querySelector('.countdown');
 const userInput = document.querySelector('.user-input');
 const currentWordDisplay = document.querySelector('.current-word');
 const startButton = document.querySelector('.start-restart');
-const hitCounter = document.querySelector('.hit-counter');
+const hitCounterDisplay = document.querySelector('.hit-counter'); 
+const catImage = document.querySelector('.cat-image');
 
 let timeLeft = 100; 
 let currentWord = '';
 let hits = 0;
 let countdownInterval; 
 let gameStarted = false; 
+let wordList = [];
 const backgroundMusic = new Audio("./assets/media/background.mp3");
 
 
+//Asked chatGPT for an array of cat words :) 
+const catWords = [
+    'cat', 'kitten', 'feline', 'purr', 'meow', 'whiskers', 'paws', 'claws', 'tail',
+    'litter', 'scratch', 'groom', 'nap', 'sleep', 'play', 'hunt', 'mouse', 'bird',
+    'toy', 'yarn', 'ball', 'feather', 'string', 'laser', 'treat', 'food', 'water',
+    'milk', 'cream', 'salmon', 'tuna', 'kibble', 'bed', 'basket', 'carrier',
+    'collar', 'bell', 'tag', 'rescue', 'shelter', 'adopt', 'stray', 'feral',
+    'siamese', 'persian', 'maine coon', 'ragdoll', 'sphynx', 'bengal', 'tabby',
+    'calico', 'tortoiseshell', 'tuxedo', 'alley', 'roof', 'fence', 'window', 'sunbeam',
+    'lap', 'cuddle', 'snuggle', 'nuzzle', 'knead', 'biscuit', 'zoomies', 'hiss',
+    'growl', 'mew', 'yowl', 'tomcat', 'queen', 'litterbox', 'vet', 'vaccine', 'chip',
+    'fur', 'hairball', 'shed', 'grooming', 'brush', 'comb', 'ruby', 'charlie',
+    'creamcheese', 'bagel', 'leash', 'harness', 'catnip', 'scratching post', 'perch',
+    'tree', 'fence', 'pounce', 'stalk', 'ambush', 'curious', 'independent', 'aloof',
+    'companion', 'pet', 'animal'
+];
 
 const words = [ 
     'dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'weather',  
@@ -47,14 +65,12 @@ const words = [
     'storm', 'universe', 'engine', 'mistake', 'hurricane' 
     ]; 
 
-let wordList = [];
-
 function getDate() {
     const options = {
         year: 'numeric',
         month: 'short',
         day: '2-digit'
-    }
+    };
 }
 
 class Score {
@@ -99,18 +115,19 @@ function startGame() {
 
     wordList = [...words]; 
     wordList.sort(() => Math.random() - 0.5); 
-    currentWordDisplay.textContent = wordList[wordList.length - 1]; 
-    wordList.pop(); 
+    currentWord = wordList[wordList.length - 1];
+    wordList.pop();
 
+    currentWordDisplay.textContent = currentWord; 
     userInput.value = '';
     userInput.focus();
     userInput.placeholder = "Enter word here";
     
     hits = 0; 
-    hitCounter.textContent = `${hits} Hits`;
+    hitCounterDisplay.textContent = `${hits} Hits`;
 
     startButton.textContent = "Restart";
-
+    updateCatImage();
 }
 
 function resetGame() {
@@ -130,6 +147,7 @@ function endGame() {
     backgroundMusic.currentTime = 0;
 
     startButton.textContent = "Restart";
+    updateCatImage();
 }
 
 function getNextWord() {
@@ -168,14 +186,13 @@ userInput.addEventListener('input', () => {
         }
     }
    
-    if (displayWord !== currentWordDisplay.innerHTML) {
-        currentWordDisplay.innerHTML = displayWord;
-    }
+    currentWordDisplay.innerHTML = displayWord;
 
     if (typedWord === currentWord && correct) {
         hits++;
-        hitCounter.textContent = `${hits} Hits`;
+        hitCounterDisplay.textContent = `${hits} Hits`;
         getNextWord();
+        updateCatImage()
     }
 });
 
@@ -185,3 +202,30 @@ userInput.addEventListener('keydown', (event) => {
         event.preventDefault(); 
     }
 });
+
+//used W3 schools to get a switch to work 
+function updateCatImage() {
+    if (!gameStarted) {
+      catImage.src = 'cat1.png';
+      return;
+    }
+    switch (true) {
+        case hits < 5:
+            catImage.src = './assets/media/cat1.png';
+            break;
+        case hits < 15:
+            catImage.src = './assets/media/cat2.png';
+            break;
+        case hits < 25:
+            catImage.src = './assets/media/cat3.png';
+            break;
+        case hits < 35:
+            catImage.src = './assets/media/cat4.png';
+            break;
+        case hits < 45:
+            catImage.src = './assets/media/cat5.png';
+            break;
+        default:
+            catImage.src = './assets/media/cat6.png';
+    }
+}
