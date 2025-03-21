@@ -1,5 +1,20 @@
 'use strict';
 
+const countdownDisplay = document.querySelector('.countdown');
+const userInput = document.querySelector('.user-input');
+const currentWordDisplay = document.querySelector('.current-word');
+const startButton = document.querySelector('.start-restart');
+const hitCounter = document.querySelector('.hit-counter');
+
+let timeLeft = 100; 
+let currentWord = '';
+let hits = 0;
+let countdownInterval; 
+let gameStarted = false; 
+const backgroundMusic = new Audio("./assets/media/background.mp3");
+
+
+
 const words = [ 
     'dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'weather',  
     'bottle', 'history', 'dream', 'character', 'money', 'absolute', 'machine',  
@@ -32,9 +47,7 @@ const words = [
     'storm', 'universe', 'engine', 'mistake', 'hurricane' 
     ]; 
 
-
 let wordList = [];
-
 
 function getDate() {
     const options = {
@@ -60,31 +73,115 @@ class Score {
     get date() { return getDate(this.#date); } 
 }
 
-startGame() {
-//start timer
-//change 'start" to "Restart"
+function startCountdown() {
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+    }
+  
+    timeLeft = 100; 
+  
+    countdownInterval = setInterval(() => {
+      if (timeLeft >= 0) {
+        countdownDisplay.textContent = timeLeft; 
+        timeLeft--;
+      } else {
+        endGame();
+        countdownDisplay.textContent = "Time's up!";
+        clearInterval(countdownInterval);
+      }
+    }, 1000);
+  }
+
+function startGame() {
+    gameStarted = true;
+    startCountdown();
+    backgroundMusic.play();
+
+    wordList = [...words]; 
+    wordList.sort(() => Math.random() - 0.5); 
+    currentWordDisplay.textContent = wordList[wordList.length - 1]; 
+    wordList.pop(); 
+
+    userInput.value = '';
+    userInput.focus();
+    userInput.placeholder = "Enter word here";
+    
+    hits = 0; 
+    hitCounter.textContent = `${hits} Hits`;
+
+    startButton.textContent = "Restart";
 
 }
 
-endGame() {
-//when timer runs out this should run
-//clear interval (global function)
-// change "REstart" back to "Start"
-}
+function resetGame() {
+    clearInterval(countdownInterval);
+    countdownDisplay.textContent = '- - -';
+    userInput.value = '';
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 
-resetGame() {
-    let wordList = [...words];
-    wordList.sort(() => Math.random() - 0.5);
-//set time to - - -
-// clear inputs
-// hits = 0
-//music resets
-//shuffles wordList, using Andre's shuffle methods
+    startGame();
 
 }
 
-// event listener to input, if all the letters are there then getNextWord();
+function endGame() {
+    gameStarted = false;
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 
-getNextWord() {
-
+    startButton.textContent = "Restart";
 }
+
+function getNextWord() {
+    if (wordList.length > 0) {
+        currentWord = wordList[wordList.length - 1];
+        currentWordDisplay.textContent = currentWord;
+        wordList.pop();
+        userInput.value = '';
+    } else {
+        endGame();
+    }
+}
+
+startButton.addEventListener('click', () => {
+    if (startButton.textContent === "Start") {
+        startGame();
+        startButton.textContent = "Restart";
+        gameStarted = true;
+    } else if (startButton.textContent === "Restart") {
+        resetGame();
+    }
+  });
+
+
+userInput.addEventListener('input', () => {
+    const typedWord = userInput.value;
+    let displayWord = '';
+    let correct = true;
+
+    for (let i = 0; i < currentWord.length; i++) {
+        if (typedWord[i] === currentWord[i]) {
+            displayWord += '<span class="correct">' + currentWord[i] + '</span>';
+        } else {
+            displayWord += currentWord[i];
+            correct = false;
+        }
+    }
+   
+    if (displayWord !== currentWordDisplay.innerHTML) {
+        currentWordDisplay.innerHTML = displayWord;
+    }
+
+    if (typedWord === currentWord && correct) {
+        hits++;
+        hitCounter.textContent = `${hits} Hits`;
+        getNextWord();
+    }
+});
+
+//The following from AI, how to prevent form submission if user hits enter
+userInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault(); 
+    }
+});

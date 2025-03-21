@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+/* Music from #Uppbeat (free for Creators!):
+https://uppbeat.io/t/color-parade/pixel-playground */s
+
+* {
+  font-family: "Jersey+15", sans-serif;
+}
+
 body {
     background-color: #18191A;
     color: #fff;
@@ -43,58 +50,60 @@ body {
     justify-content: space-between;
     gap: 250px;
     align-items: center;
-  }
+}
   
-  .title {
-    border: 2px solid rgb(238, 142, 216);
-  }
+.title {
+  border: 2px solid rgb(238, 142, 216);
+}
   
-  .start-restart {
-    border: 2px solid rgb(209, 133, 228);
-  }
+.start-restart {
+  border: 2px solid rgb(209, 133, 228);
+}
 
-  /* - - - - - - - - - - - - - - - - - */
-  /* - - - - - -Stopwatch - - - - - - -*/
-  /* - - - - - - - - - - - - - - - - - */
+ /* - - - - - - - - - - - - - - - - - */
+ /* - - - - - -Stopwatch - - - - - - -*/
+ /* - - - - - - - - - - - - - - - - - */
   
-  .clock-area {
-    margin-top: 20px;
-    border: 2px solid red;
-    height: 100px;
-  }
+.clock-area {
+  margin-top: 20px;
+  border: 2px solid red;
+  height: 100px;
+}
   
-  .fa-solid.fa-stopwatch {
-    border: 2px solid rgb(255, 157, 0);
-  }
+.fa-solid.fa-stopwatch {
+  border: 2px solid rgb(255, 157, 0);
+}
   
-  .countdown {
-    margin-top: 10px;
-    border: 2px solid rgb(0, 68, 255);
-    font-size: 2.5rem;
-  }
-  
-  /* - - - - - - - - - - - - - - - - - */
-  /* - - - Current Word Display - - - -*/
-  /* - - - - - - - - - - - - - - - - - */
-  
-  .word-display {
-    border: 2px solid rgb(197, 133, 172);
-    height: 140px;
-    width: 400px;
-  }
-  
-  .current-word {
-    border: 2px solid rgb(121, 183, 119);
-    user-select: none; 
-  }
-  
-  .hit-counter {
-    margin-top: 20px;
-    border: 2px solid rgb(229, 151, 233);
-    height: 70px;
+.countdown {
+  margin-top: 10px;
+  border: 2px solid rgb(0, 68, 255);
+  font-size: 2.5rem;
+}
 
-  }
+/* - - - - - - - - - - - - - - - - - */
+/* - - - Current Word Display - - - -*/
+/* - - - - - - - - - - - - - - - - - */
   
+.word-display {
+  border: 2px solid rgb(197, 133, 172);
+  height: 140px;
+  width: 400px;
+}
+  
+.current-word {
+  border: 2px solid rgb(121, 183, 119);
+  user-select: none; 
+}
+  
+.hit-counter {
+  margin-top: 20px;
+  border: 2px solid rgb(229, 151, 233);
+  height: 70px;
+}
+  
+.correct {
+  color: rgb(56, 196, 56);
+}
   /* - - - - - - - - - - - - - - - - - */
   /* - - - - - -User Input- - - - - - -*/
   /* - - - - - - - - - - - - - - - - - */
