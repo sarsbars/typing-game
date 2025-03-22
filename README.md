@@ -32,4 +32,4 @@ where users type words that appear on the screen before the time runs out.
 
 ## Check it out
 
-[Kitty Chowdown](https://sarsbars.github.io/kitty-chowdown/)# Typing Game
+[Kitty Chowdown](https://sarsbars.github.io/kitty-chowdown/)
