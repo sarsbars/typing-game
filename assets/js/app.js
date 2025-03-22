@@ -10,7 +10,7 @@ const catImage = document.querySelector('.cat-image');
 let timeLeft = 100; 
 let currentWord = '';
 let hits = 0;
-let countdownInterval; 
+let countdownInterval = null; 
 let gameStarted = false; 
 let wordList = [];
 const backgroundMusic = new Audio("./assets/media/background.mp3");
@@ -72,7 +72,7 @@ class Score {
 }
 
 function startCountdown() {
-    if (countdownInterval) {
+    if (countdownInterval !== null) {
       clearInterval(countdownInterval);
     }
   
@@ -118,18 +118,14 @@ function resetGame() {
     userInput.value = '';
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
-
     startGame();
-
 }
 
 function endGame() {
     gameStarted = false;
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
-
     startButton.textContent = "Restart";
-    updateCatImage();
 }
 
 function getNextWord() {
@@ -187,8 +183,8 @@ userInput.addEventListener('keydown', (event) => {
 
 //used W3 schools to get a switch to work 
 function updateCatImage() {
-    if (!gameStarted) {
-      catImage.src = 'cat1.png';
+    if (gameStarted === false) {
+      catImage.src = './assets/media/cat1.png';
       return;
     }
     switch (true) {
