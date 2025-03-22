@@ -1,17 +1,16 @@
 @charset "utf-8";
 
-/*  */
-
 body {
-    background-color: #18191A;
-    color: #fff;
+    background-color:#81d9cb;
+    color: #111111;
     font-family: "Jersey 15", sans-serif;
+    height: 100vh;
 }
 
 .container {
     width: min(100% - 40px, 1080px);
     margin-inline: auto;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100dvh;
@@ -19,8 +18,8 @@ body {
 
 .game-container {
     width: 450px;
-    height: 550px;
-    border: 2px solid rgb(55, 255, 0);
+    height: 650px;
+    background-color: #cb81d9;
 }
 
 .flex {
@@ -28,8 +27,8 @@ body {
 }
 
 .centered {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     justify-content: center;
 }
@@ -39,122 +38,115 @@ body {
 }
 
 /* - - - - - - - - - - - - - - - - - */
-/* -Top Row (Title and start button)-*/
+/* - Top Row (Title and start button) - */
 /* - - - - - - - - - - - - - - - - - */
 
 .top-row {
-    border: 2px solid rgb(0, 242, 255);
     height: 70px;
     justify-content: space-between;
     gap: 120px;
     align-items: center;
 }
-  
+
 .title {
-  border: 2px solid rgb(238, 142, 216);
-  font-size: 3rem;
+    font-size: 3rem;
 }
-  
+
 .start-restart {
-  border: 2px solid rgb(209, 133, 228);
-  font-size: 3rem;
-  padding: 0 5px;
-  background-color:#18191A;
-  color: #fff;
-  width: 100px;
+    font-size: 3rem;
+    padding: 0 5px;
+    background-color: #cb81d9;
+    color: #111111;
+    width: 100px;
 }
 
- /* - - - - - - - - - - - - - - - - - */
- /* - - - - - -Stopwatch - - - - - - -*/
- /* - - - - - - - - - - - - - - - - - */
-  
+/* - - - - - - - - - - - - - - - - - */
+/* - - - - - - Stopwatch - - - - - - - */
+/* - - - - - - - - - - - - - - - - - */
+
 .clock-area {
-  margin-top: 20px;
-  border: 2px solid red;
-  height: 100px;
+    margin-top: 20px;
+    height: 100px;
 }
-  
+
 .fa-solid.fa-stopwatch {
-  border: 2px solid rgb(255, 157, 0);
-  font-size: 3rem;
+    font-size: 3rem;
 }
-  
+
 .countdown {
-  margin-top: 10px;
-  border: 2px solid rgb(0, 68, 255);
-  font-size: 3.5rem;
+    margin-top: 10px;
+    font-size: 3.5rem;
 }
 
 /* - - - - - - - - - - - - - - - - - */
-/* - - - Current Word Display - - - -*/
+/* - - - Current Word Display - - - - */
 /* - - - - - - - - - - - - - - - - - */
-  
+
 .word-display {
-  margin-top: 10px;
-  border: 2px solid rgb(197, 133, 172);
-  height: 140px;
-  width: 400px;
+    height: 140px;
+    width: 400px;
+    background-color: #81d9cb;
+    margin-bottom: 5px;
 }
-  
+
 .current-word {
-  border: 2px solid rgb(121, 183, 119);
-  user-select: none; 
-  font-size: 5rem;
-  font-weight: 300;
-  text-align: center;
+    user-select: none;
+    font-size: 5.5rem;
+    font-weight: 100;
+    text-align: center;
 }
-  
+
 .hit-counter {
-  margin-top: 20px;
-  border: 2px solid rgb(229, 151, 233);
-  height: 70px;
-  font-size: 3rem;
+    height: 70px;
+    font-size: 3rem;
 }
-  
+
 .correct {
-  color: rgb(56, 196, 56);
+    color: #fcfcfc;
 }
 
 /* - - - - - - - - - - - - - - - - - */
-/* - - - - - -User Input- - - - - - -*/
+/* - - - Cat Images - - - - - - */
 /* - - - - - - - - - - - - - - - - - */
-  
-form {
-  height: 70px;
-  width: 400px;
-}
-  
-.user-input {
-  width: 400px;
-  height: 70px;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 200;
-}
-  
-/* - - - - - - - - - - - - - - - - - */
-/* - - - - - - Copywrite -- - - - - -*/
-/* - - - - - - - - - - - - - - - - - */
-  
-.copywrite {
-  margin-top: 20px;
-  height: 70px;
-  font-size: 2rem;
-}
 
-
-/* - - - - - - - - - - - - - - - - - */
-/* - - - - - - Cat Images - - - - - -*/
-/* - - - - - - - - - - - - - - - - - */
-  
 .image-container {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: solid 2px black;
 }
 
 .image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* - - - - - - - - - - - - - - - - - */
+/* - - - User Input - - - - - - */
+/* - - - - - - - - - - - - - - - - - */
+
+form {
+    height: 70px;
+    width: 400px;
+}
+
+.user-input {
+    width: 400px;
+    height: 70px;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 200;
+    color: #111111;
+}
+
+/* - - - - - - - - - - - - - - - - - */
+/* - - - Copywrite - - - - - - */
+/* - - - - - - - - - - - - - - - - - */
+
+.copywrite {
+    margin-top: 20px;
+    height: 70px;
+    font-size: 2rem;
 }

@@ -15,24 +15,6 @@ let gameStarted = false;
 let wordList = [];
 const backgroundMusic = new Audio("./assets/media/background.mp3");
 
-
-//Asked chatGPT for an array of cat words :) 
-const catWords = [
-    'cat', 'kitten', 'feline', 'purr', 'meow', 'whiskers', 'paws', 'claws', 'tail',
-    'litter', 'scratch', 'groom', 'nap', 'sleep', 'play', 'hunt', 'mouse', 'bird',
-    'toy', 'yarn', 'ball', 'feather', 'string', 'laser', 'treat', 'food', 'water',
-    'milk', 'cream', 'salmon', 'tuna', 'kibble', 'bed', 'basket', 'carrier',
-    'collar', 'bell', 'tag', 'rescue', 'shelter', 'adopt', 'stray', 'feral',
-    'siamese', 'persian', 'maine coon', 'ragdoll', 'sphynx', 'bengal', 'tabby',
-    'calico', 'tortoiseshell', 'tuxedo', 'alley', 'roof', 'fence', 'window', 'sunbeam',
-    'lap', 'cuddle', 'snuggle', 'nuzzle', 'knead', 'biscuit', 'zoomies', 'hiss',
-    'growl', 'mew', 'yowl', 'tomcat', 'queen', 'litterbox', 'vet', 'vaccine', 'chip',
-    'fur', 'hairball', 'shed', 'grooming', 'brush', 'comb', 'ruby', 'charlie',
-    'creamcheese', 'bagel', 'leash', 'harness', 'catnip', 'scratching post', 'perch',
-    'tree', 'fence', 'pounce', 'stalk', 'ambush', 'curious', 'independent', 'aloof',
-    'companion', 'pet', 'animal'
-];
-
 const words = [ 
     'dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'weather',  
     'bottle', 'history', 'dream', 'character', 'money', 'absolute', 'machine',  
