@@ -97,7 +97,7 @@ function getNextWord() {
     }
 }
 
-startButton.addEventListener('click', () => {
+utils.listen('click', button); () => {
     if (startButton.textContent === "Start") {
         startGame();
         startButton.textContent = "Restart";
@@ -105,10 +105,10 @@ startButton.addEventListener('click', () => {
     } else if (startButton.textContent === "Restart") {
         resetGame();
     }
-  });
+  };
 
 
-userInput.addEventListener('input', () => {
+utils.listen('input', userInput, () => {
     const typedWord = userInput.value;
     let displayWord = '';
     let correct = true;
@@ -133,9 +133,9 @@ userInput.addEventListener('input', () => {
 });
 
 //The following from AI, how to prevent form submission if user hits enter
-userInput.addEventListener('keydown', (event) => {
+utils.listen('keydown', userInput, (event) => {
     if (event.key === 'Enter') {
-        event.preventDefault(); 
+        event.preventDefault();
     }
 });
 
