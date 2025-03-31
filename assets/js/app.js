@@ -1,7 +1,7 @@
 'use strict';
 import * as utils from "./utils.js";
 import { Score } from './score.js'; 
-import { words } from './words.js'; 
+import words from './words.js'; 
 
 const countdownDisplay = utils.select('.countdown');
 const userInput = utils.select('.user-input');
@@ -97,7 +97,7 @@ function getNextWord() {
     }
 }
 
-utils.listen('click', button); () => {
+utils.listen('click', button, () => { 
     if (startButton.textContent === "Start") {
         startGame();
         startButton.textContent = "Restart";
@@ -105,7 +105,7 @@ utils.listen('click', button); () => {
     } else if (startButton.textContent === "Restart") {
         resetGame();
     }
-  };
+  });
 
 
 utils.listen('input', userInput, () => {
