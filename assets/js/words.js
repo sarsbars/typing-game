@@ -1,4 +1,4 @@
-const words = [ 
+export const words = [ 
     'dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'weather',  
     'bottle', 'history', 'dream', 'character', 'money', 'absolute', 'machine',  
     'accurate', 'rainbow', 'bicycle', 'eclipse', 'trouble', 'developer',  
