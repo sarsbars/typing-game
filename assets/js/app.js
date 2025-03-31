@@ -4,15 +4,14 @@ import { Score } from './score.js';
 
 import words from './words.js';
 
-console.log(words);
-
+const button = utils.select('.start-restart');
 const countdownDisplay = utils.select('.countdown');
 const userInput = utils.select('.user-input');
 const currentWordDisplay = utils.select('.current-word');
 const startButton = utils.select('.start-restart');
 const hitCounterDisplay = utils.select('.hit-counter'); 
 const catImage = utils.select('.cat-image');
-const button = utils.select('.start-restart');
+
 
 let timeLeft = 100; 
 let currentWord = '';
