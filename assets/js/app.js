@@ -1,7 +1,10 @@
 'use strict';
 import * as utils from "./utils.js";
 import { Score } from './score.js'; 
-import words from './words.js'; 
+
+import words from './words.js';
+
+console.log(words);
 
 const countdownDisplay = utils.select('.countdown');
 const userInput = utils.select('.user-input');
