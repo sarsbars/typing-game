@@ -12,6 +12,7 @@ const currentWordDisplay = utils.select('.current-word');
 const startButton = utils.select('.start-restart');
 const hitCounterDisplay = utils.select('.hit-counter'); 
 const catImage = utils.select('.cat-image');
+const button = utils.select('button');
 
 let timeLeft = 100; 
 let currentWord = '';
